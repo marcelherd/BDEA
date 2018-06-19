@@ -4,7 +4,11 @@ public class HyperLogLog {
 	
 	private static final int NUM_BUCKETS = 64;
 		
-	private int[] buckets = new int[NUM_BUCKETS];
+	private int[] buckets;
+	
+	public HyperLogLog() {
+		buckets = new int[NUM_BUCKETS];
+	}
 	
 	public void onEventReceived(String data) {
 		String s_targetBucket = data.substring(0, 6);

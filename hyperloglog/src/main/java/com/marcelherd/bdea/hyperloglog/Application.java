@@ -33,6 +33,21 @@ public class Application {
 		}
 		
 		System.out.println("(2) Estimated unique words: " + hll.getCounter());
+		
+		// For sure 4 different strings
+		hll = new HyperLogLog();
+
+		hll.onEventReceived("0011010100110101");
+		hll.onEventReceived("0001010100110101");
+		hll.onEventReceived("1011010100110101");
+		hll.onEventReceived("0011010000110101");
+
+		hll.onEventReceived("0011010100110101");
+		hll.onEventReceived("0001010100110101");
+		hll.onEventReceived("1011010100110101");
+		hll.onEventReceived("0011010000110101");
+		
+		System.out.println("(3) Estimated unique words: " + hll.getCounter());
 	}
 	
 }
